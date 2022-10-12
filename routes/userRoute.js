@@ -8,6 +8,9 @@ const router = express.Router();
 router.get("/", bookController.showAllData);
 router.post("/register", userController.postRegister);
 router.post("/login", userController.loginUser);
+router.get("/verification", userController.verifyUser);
+router.post("/verification", userController.verifyUserResend);
+
 
 
 module.exports = router;
