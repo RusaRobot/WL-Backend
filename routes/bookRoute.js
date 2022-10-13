@@ -5,8 +5,8 @@ const router = express.Router();
 // const { upload } = require("../lib/uploader");
 
 router.get("/", bookController.showAllBook);
-router.post("/:id", bookController.filterBookById);
-router.post("/sort/:id", bookController.sortBookById);
+router.post("/:genre", bookController.filterBookById);
+router.get("/sort", bookController.sortBookById);
 router.get('/:id', bookController.detailBookByPk);
 
 module.exports = router;
