@@ -1,4 +1,5 @@
-const db = require("../models")
+const db = require("../models");
+const userController = require("./userController");
 
 Books = db.Books
 
@@ -42,8 +43,13 @@ const bookController = {
 
     },
     detailBookByPk: async (req, res) => {
-        try {
-            
+        try { 
+            const findBooksByPk = await db.Books.findByPk(req.params.id)
+        
+            return res.status(200).json({
+                message: "Show Book Detail",
+                data: findBooksByPk
+            })
         } catch (error) {
             console.log(error)
             return res.status(500).json({
