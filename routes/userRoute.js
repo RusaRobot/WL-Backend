@@ -5,9 +5,9 @@ const bookController = require("../controller/bookController");
 const router = express.Router();
 // const { upload } = require("../lib/uploader");
 
-router.get("/", bookController.showAllData);
-router.post("/register", userController.postRegister);
-router.post("/login", userController.loginUser);
+// router.get("/", userController.showAllBook);
+// router.post("/register", userController.postRegister);
+// router.post("/login", userController.loginUser);
 
 
 module.exports = router;
