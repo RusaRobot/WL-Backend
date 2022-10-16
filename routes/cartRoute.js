@@ -7,6 +7,10 @@ const router = express.Router();
 router.get("/", cartController.showAllCart);
 router.post("/", cartController.addNewCart);
 router.delete("/:id", cartController.deleteCartById);
+router.get("/borrowed", cartController.showBorrowedBook);
+router.delete("/", cartController.returnDeleteCart);
+router.patch("/", cartController.confirmBorrow);
+
 // router.post("/:genre", cartController.filtercartById);
 // router.get("/sort", cartController.sortcartById);
 // router.get("/cart", cartController.findByCart);
