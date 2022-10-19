@@ -1,4 +1,5 @@
 const { validateToken } = require("../lib/jwt")
+const db = require ("../models")
 
 const verifyToken = (req, res, next) => {
   let token = req.headers.authorization
@@ -28,10 +29,13 @@ const verifyToken = (req, res, next) => {
   }
 }
 
-const verifyAdmin = (req, res, next) => {
+const verifyAdmin = async (req, res, next) => {
   try {
-    // logicnya if (role != "admin")
-
+    if (req.user.role == "admin") {
+      return res.status(401).json({
+        message: "User is admin"
+      })
+    }
 
     next()
   } catch (err) {
