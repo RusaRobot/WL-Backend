@@ -1,10 +1,11 @@
 const { validateToken } = require("../lib/jwt")
 const db = require ("../models")
 
+
 const verifyToken = (req, res, next) => {
   let token = req.headers.authorization
 
-  console.log(token)
+  // console.log(token)
 
   if (!token) {
     return res.status(401).json({
@@ -30,6 +31,7 @@ const verifyToken = (req, res, next) => {
     })
   }
 }
+
 
 const verifyAdmin = async (req, res, next) => {
   try {

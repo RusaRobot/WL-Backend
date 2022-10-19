@@ -1,14 +1,15 @@
-const bcrypt = require("bcrypt")
-const { validateVerificationToken } = require("../lib/verification")
-const db = require("../models")
-const { signToken } = require("../lib/jwt")
-const emailer = require("../lib/emailer")
-const { createVerificationToken } = require("../lib/verification")
-const { Op } = require("sequelize")
-const fs = require("fs")
-const handlebars = require("handlebars")
+const bcrypt = require("bcrypt");
+const { validateVerificationToken } = require("../lib/verification");
+const db = require("../models");
+const { signToken } = require("../lib/jwt");
+const emailer = require("../lib/emailer");
+const { createVerificationToken } = require("../lib/verification");
+const { Op } = require("sequelize");
+const fs = require("fs");
+const handlebars = require("handlebars");
 
 const userController = {
+
     registerMember: async (req, res) => {
         try {
             const { NIM, username, email, password, role } = req.body
@@ -139,7 +140,7 @@ const userController = {
 
             //   Redirect ke page tertentu
             //   return res.redirect('http://localhost:3000/login')
-            return res.redirect("/")
+            return res.redirect("http://localhost:3000/")
         } catch (err) {
             console.log(err)
             return res.status(500).json({
