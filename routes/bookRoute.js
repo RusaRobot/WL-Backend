@@ -11,8 +11,9 @@ router.get("/sort", bookController.sortBookById);
 router.get("/cart", bookController.findByCart);
 router.get('/:id', bookController.detailBookByPk);
 router.delete("/:id", verifyToken, verifyAdmin, bookController.deleteBookById)
-router.post("/", verifyAdmin, bookController.addNewBook)
-router.patch("/", verifyAdmin, bookController.updateBook)
+router.post("/", verifyToken, verifyAdmin, bookController.addNewBook)
+router.patch("/", verifyToken, verifyAdmin, bookController.updateBook)
+router.delete("/", verifyToken, verifyAdmin, bookController.deleteBookByGenre)
 
 
 // router.delete('/:id', bookController.deleteBookById);
